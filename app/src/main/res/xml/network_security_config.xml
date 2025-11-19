@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.27.9</domain>
+        <domain includeSubdomains="true">192.168.27.31</domain>
+        <domain includeSubdomains="true">192.168.100.14</domain>
+        <domain includeSubdomains="true">scarduamatriz.ddns.net</domain>
+        <domain includeSubdomains="true">servidor4.lhsistemas.com.br</domain>
+        <domain includeSubdomains="true">gersonmarquardt.ddns.net</domain>
+        <domain includeSubdomains="true">132.255.196.73</domain>
+        <domain includeSubdomains="true">192.168.4.10</domain>
+        <domain includeSubdomains="true">132.255.196.3</domain>
+        <domain includeSubdomains="true">192.168.0.1</domain>
+        <domain includeSubdomains="true">192.168.27.2</domain>
+        <domain includeSubdomains="true">192.168.27.16</domain>
+        <domain includeSubdomains="true">192.168.27.106</domain>
+        <domain includeSubdomains="true">192.168.27.7</domain>
+        <domain includeSubdomains="true">servidor1.lhsistemas.com.br</domain>
+        <domain includeSubdomains="true">192.168.0.50</domain>
+        <domain includeSubdomains="true">191.184.1.159</domain>
+        <domain includeSubdomains="true">191.240.14.137</domain>
+        <domain includeSubdomains="true">maxhair.ddns.net</domain>
+        <domain includeSubdomains="true">192.168.1.107</domain>
+        <domain includeSubdomains="true">gudefabrica.ddns.net</domain>
+        <domain includeSubdomains="true">191.184.0.73</domain>
+    </domain-config>
+</network-security-config>
