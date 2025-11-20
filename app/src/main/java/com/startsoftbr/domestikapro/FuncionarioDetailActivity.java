@@ -1,12 +1,15 @@
 package com.startsoftbr.domestikapro;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,9 +19,12 @@ import com.startsoftbr.domestikapro.model.RegistroPontoRequest;
 import com.startsoftbr.domestikapro.model.RegistroPontoResponse;
 import com.startsoftbr.domestikapro.ui.RegistrosAdapter;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -65,6 +71,18 @@ public class FuncionarioDetailActivity extends AppCompatActivity {
         btnPausa.setOnClickListener(v -> confirmar("PAUSA"));
         btnRetorno.setOnClickListener(v -> confirmar("RETORNO"));
         btnSaida.setOnClickListener(v -> confirmar("SAIDA"));
+
+        Button btnResumo = findViewById(R.id.btnResumo);
+
+        btnResumo.setOnClickListener(v -> {
+            Intent it = new Intent(this, ResumoDoDiaActivity.class);
+            it.putExtra("id", funcionarioId);
+            startActivity(it);
+        });
+
+        Button btnPdf = findViewById(R.id.btnPdf);
+        btnPdf.setOnClickListener(v -> baixarPdf());
+
     }
 
     @Override
@@ -175,4 +193,51 @@ public class FuncionarioDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void baixarPdf() {
+        api.baixarPdf(funcionarioId).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    salvarEabrirPdf(response.body());
+                } else {
+                    Toast.makeText(FuncionarioDetailActivity.this,
+                            "Erro ao baixar PDF", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(FuncionarioDetailActivity.this,
+                        "Falha de conexão", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void salvarEabrirPdf(ResponseBody body) {
+        try {
+            File file = new File(getExternalCacheDir(), "relatorio.pdf");
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(body.bytes());
+            fos.close();
+
+            Uri uri = FileProvider.getUriForFile(
+                    this,
+                    getPackageName() + ".provider",
+                    file
+            );
+
+            Intent it = new Intent(Intent.ACTION_VIEW);
+            it.setDataAndType(uri, "application/pdf");
+            it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            startActivity(it);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao abrir PDF", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

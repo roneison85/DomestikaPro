@@ -1,34 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:text="Doméstica Pro"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:title="Doméstica Pro" />
+        android:layout_marginBottom="20dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFuncionarios"
+    <!-- Botão para funcionário -->
+    <Button
+        android:id="@+id/btnFuncionarias"
+        android:text="Gerenciar Funcionárias"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:layout_marginTop="?attr/actionBarSize"
-        />
+        android:layout_height="wrap_content" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Adicionar"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:layout_anchor="@id/recyclerFuncionarios"
-        app:layout_anchorGravity="bottom|end"
-        android:layout_margin="16dp"/>
+    <!-- Botão para dashboard -->
+    <Button
+        android:id="@+id/btnDashboard"
+        android:text="Painel do Administrador"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Logout -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:text="Sair"
+        android:layout_marginTop="40dp"
+        android:background="#AA0000"
+        android:textColor="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,10 +1,13 @@
 package com.startsoftbr.domestikapro.api;
 
+import com.startsoftbr.domestikapro.model.DashboardResponse;
 import com.startsoftbr.domestikapro.model.RegistroPontoRequest;
 import com.startsoftbr.domestikapro.model.RegistroPontoResponse;
+import com.startsoftbr.domestikapro.model.ResumoPontoResponse;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -18,4 +21,14 @@ public interface RegistroPontoServiceApi {
 
     @GET("ponto/funcionaria/{id}")
     Call<List<RegistroPontoResponse>> listar(@Path("id") Long id);
+
+    @GET("ponto/resumo/{id}")
+    Call<ResumoPontoResponse> resumo(@Path("id") Long id);
+
+    @GET("ponto/resumo/{id}/pdf")
+    Call<ResponseBody> baixarPdf(@Path("id") Long id);
+
+    @GET("admin/dashboard")
+    Call<DashboardResponse> dashboard();
+
 }

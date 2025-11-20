@@ -18,44 +18,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <!-- Botões -->
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnEntrada"
-            android:text="ENTRADA"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnEntrada"
+                android:text="ENTRADA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btnPausa"
-            android:text="PAUSA"
-            android:layout_marginLeft="10dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            <Button
+                android:id="@+id/btnPausa"
+                android:text="PAUSA"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/btnRetorno"
-            android:text="RETORNO"
-            android:layout_marginLeft="10dp"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnSaida"
-            android:text="SAÍDA"
-            android:layout_marginLeft="10dp"
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/btnRetorno"
+                android:text="RETORNO"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnSaida"
+                android:text="SAÍDA"
+                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnResumo"
+                android:text="Resumo do dia"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnPdf"
+                android:text="Exportar PDF"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <!-- Lista de registros -->
