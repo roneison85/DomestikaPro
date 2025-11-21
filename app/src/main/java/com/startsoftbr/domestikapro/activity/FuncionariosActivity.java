@@ -1,4 +1,4 @@
-package com.startsoftbr.domestikapro;
+package com.startsoftbr.domestikapro.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.startsoftbr.domestikapro.R;
 import com.startsoftbr.domestikapro.api.ApiClient;
 import com.startsoftbr.domestikapro.api.FuncionarioServiceApi;
 import com.startsoftbr.domestikapro.model.FuncionarioResponse;

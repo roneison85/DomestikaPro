@@ -1,6 +1,7 @@
-package com.startsoftbr.domestikapro;
+package com.startsoftbr.domestikapro.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.startsoftbr.domestikapro.R;
 import com.startsoftbr.domestikapro.api.ApiClient;
 import com.startsoftbr.domestikapro.api.AuthService;
 import com.startsoftbr.domestikapro.api.TokenManager;
@@ -44,6 +46,11 @@ public class LoginActivity extends AppCompatActivity {
         authService = retrofit.create(AuthService.class);
 
         btnEntrar.setOnClickListener(v -> fazerLogin());
+
+        if (Build.VERSION.SDK_INT >= 33) {
+            requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 1);
+        }
+
     }
 
     private void fazerLogin() {

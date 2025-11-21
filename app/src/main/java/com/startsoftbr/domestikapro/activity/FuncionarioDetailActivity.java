@@ -1,4 +1,4 @@
-package com.startsoftbr.domestikapro;
+package com.startsoftbr.domestikapro.activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.startsoftbr.domestikapro.R;
 import com.startsoftbr.domestikapro.api.ApiClient;
 import com.startsoftbr.domestikapro.api.RegistroPontoServiceApi;
 import com.startsoftbr.domestikapro.model.RegistroPontoRequest;

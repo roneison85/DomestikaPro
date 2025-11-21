@@ -1,4 +1,4 @@
-package com.startsoftbr.domestikapro;
+package com.startsoftbr.domestikapro.activity;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.startsoftbr.domestikapro.R;
 import com.startsoftbr.domestikapro.api.ApiClient;
 import com.startsoftbr.domestikapro.api.RegistroPontoServiceApi;
 import com.startsoftbr.domestikapro.model.ResumoPontoResponse;
